@@ -1,0 +1,45 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2341
+
+Send 'current editing buffer', or 'selected area of text' with email.
+Most simplest usage is to execute :Mail command.
+
+Supported Mail Auth type is
+    - basic SMTP password Auth
+    - POP before STMP Auth
+    - Outbound Port 25 Blocking
+    - GMail
+
+This plugin needs '+python', '+iconv', '+multi_byte' and
+Python is installed, and $PATH is appropriately set.
+
+USAGE
+You can use :Mail command to send email.
+See also postmail-example .
+
+:[range]Mail
+        send mail message.
+        if [range] is selected, send selected text.
+        if [range] is not selected, send current buffer.
+
+:[range]Mail {to_mailaddress}
+        send mail message to {to_mailaddress}.
+        if [range] is selected, send selected text.
+        if [range] is not selected, send current buffer.
+
+:[range]Mail {to_mailaddress1} {to_mailaddress2}, {to_mailaddress3}
+        send mail message to {to_mailaddress1}, {to_mailaddress2}, and
+        {to_mailaddress2}.
+        if [range] is selected, send selected text.
+        if [range] is not selected, send current buffer.
+
+COMMAND USAGE EXAMPLE
+:Mail
+        send mail message.
+        message is current buffer text.
+
+:Mail mail@nanasi.jp
+        send current buffer text to 'mail@nanasi.jp' address.
+
+:6,20Mail mail@nanasi.jp
+        send from line 6 to line 20 text to 'mail@nanasi.jp' address.
+
