@@ -361,5 +361,11 @@ HISTORY                                                     *postmail-history*
         - Change script name from 'sendmail' to 'postmail'.
         - Change from 'Vimball' to 'zip' archive distribution.
 
+2008/08/19 02:00:00
+        version : 0.5.3
+
+        plugin/postmail.vim
+        - Add escape code if mail_encoding is 'ISO-2022-JP'.
+
 
 vim:tw=78:ts=8:ft=help:norl:

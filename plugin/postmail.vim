@@ -152,6 +152,12 @@ pop_port      = int(vim.eval("a:pop_port"))
 pop_user      = vim.eval("a:pop_user")
 pop_pass      = vim.eval("a:pop_pass")
 
+# TODO move to python script file.
+# JAPANESE ISO-2022-JP ESCAPE
+if mail_encoding.upper() == 'ISO-2022-JP':
+    subject = subject.replace(u'\uff5e', u'\u301c')
+    body    = body.replace(u'\uff5e', u'\u301c')
+
 mailer = Mailer(auth_type, smtp_host, smtp_port, login_user, login_pass, mail_encoding, pop_host, pop_port, pop_user, pop_pass)
 mailer.sendmail(from_address, to_address, subject, body)
 EOF
