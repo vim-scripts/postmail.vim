@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# vim:set fenc=utf-8 nowrap :
+# vim:set nowrap :
 import smtplib
 from email.MIMEText import MIMEText
 from email.Header import Header
@@ -8,7 +8,6 @@ import threading
 
 
 class BaseMailer:
-
     def __init__(self, smtp_host, smtp_port, login_user, login_pass, mail_encoding):
         self.smtp_host     = smtp_host
         self.smtp_port     = smtp_port
@@ -38,7 +37,6 @@ class BaseMailer:
 
 
 class TLSMailer(BaseMailer):
-
     def __init__(self, smtp_host, smtp_port, login_user, login_pass, mail_encoding):
         BaseMailer.__init__(self, smtp_host, smtp_port, login_user, login_pass, mail_encoding)
 
@@ -54,7 +52,6 @@ class TLSMailer(BaseMailer):
 
 
 class POPMailer(BaseMailer):
-
     def __init__(self, smtp_host, smtp_port, login_user, login_pass, mail_encoding, pop_host, pop_port, pop_user, pop_pass):
         BaseMailer.__init__(self, smtp_host, smtp_port, login_user, login_pass, mail_encoding)
         self.pop_host = pop_host
@@ -76,7 +73,6 @@ class POPMailer(BaseMailer):
 
 
 class Mailer(threading.Thread):
-
     def __init__(self, auth_type, smtp_host, smtp_port, login_user, login_pass, mail_encoding, pop_host, pop_port, pop_user, pop_pass):
         threading.Thread.__init__(self)
 
